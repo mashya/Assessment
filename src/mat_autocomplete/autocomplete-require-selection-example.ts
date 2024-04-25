@@ -19,9 +19,7 @@ import {
   switchMap,
 } from 'rxjs';
 
-/**
- * @title Require an autocomplete option to be selected
- */
+
 @Component({
   selector: 'autocomplete-require-selection-example',
   templateUrl: 'autocomplete-require-selection-example.html',
@@ -46,7 +44,6 @@ export class AutocompleteRequireSelectionExample {
   lastInput = '';
   lastTime = 0;
   ngOnInit() {
-    //console.log('entered nginit');
     this.options$ = this.myControl.valueChanges.pipe(
       // Trim leading/trailing whitespace and ignore empty strings
 
@@ -70,12 +67,9 @@ export class AutocompleteRequireSelectionExample {
           return of([]);
         }
       })
-      // Map service response to options
-      //map(values => values.map(value => ({ value })))
     );
   }
   displayError() {
-    //console.log('entered check');
     if (this.myControl.hasError('required')) {
       return 'Value is required';
     } else if (this.myControl.hasError('maxlength')) {
@@ -91,6 +85,3 @@ export class AutocompleteRequireSelectionExample {
   }
 }
 
-/**  Copyright 2024 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license */
