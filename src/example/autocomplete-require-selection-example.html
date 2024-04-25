@@ -1,0 +1,34 @@
+Control value: {{myControl.value || 'empty'}}
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Number</mat-label>
+    <input
+      matInput
+      type="text"
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <!-- <input
+      #input
+      type="text"
+      placeholder="Pick one"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    /> -->
+    <mat-error
+      *ngIf="myControl.hasError('required') || myControl.hasError('maxlength')"
+      >{{ displayError() }}</mat-error
+    >
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options$ | async" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<!-- Copyright 2024 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
